@@ -1075,6 +1075,7 @@
     const art = (document.documentElement.innerHTML.match(/<!--([\s\S]*?)-->/) || [, ''])[1];
     console.log(`%c${art}`, 'font: 9px/9px monospace; color: #000; background: #c8f03c');
     console.log('%cmembrana.aiuto()', 'font: 12px monospace');
+    console.log('il brano  https://smollojames.bandcamp.com/track/membrana\nil film   https://youtu.be/9Lv9OIGGwyE');
     window.membrana = {
       aiuto() {
         console.log([
@@ -1085,6 +1086,7 @@
           'membrana.salta(b)      vai alla battuta b',
           'membrana.esploso()     separa gli strati',
           'membrana.stato()       i conti',
+          'membrana.ascolta()     il brano, su bandcamp',
         ].join('\n'));
       },
       rompi(n = 32) { mosh.pos = { x: Math.random(), y: Math.random() }; mosh.drag = Math.min(64, mosh.drag + n); return n; },
@@ -1094,6 +1096,7 @@
       salta(b = 1) { salta(b - 1); return b; },
       esploso() { toggleEsploso(); return esploso; },
       stato() { return { ...stat, f: curF }; },
+      ascolta() { window.open('https://smollojames.bandcamp.com/track/membrana', '_blank'); return 'https://smollojames.bandcamp.com/track/membrana'; },
     };
     if (location.search.includes('debug')) window.__membrana = { sound, stat, mosh, get A() { return A; }, get B() { return B; }, get S() { return S; } };
   }
