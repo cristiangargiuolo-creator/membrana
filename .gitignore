@@ -1,0 +1,7 @@
+ig/
+NOTE_PRIVATE.md
+build_score.py
+assets/embrione.txt
+__pycache__/
+*.log
+assets/poster.png

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>membrana</title>
+<link rel="icon" id="icona" href="data:,">
+<link rel="stylesheet" href="style.css?v=12">
+</head>
+<body>
+<!--
+
+33333333333333333333333333237bdffffa8699eefeeecce85111
+332233333334444333333569879ffffecdeeeeeedceb9eedccc8322211
+11222222233333333338deffbeffeeeffddedeeeddcb9dedccb989de79b61
+1111111111122333337fffffffdeffffffdc8989aa8ab9acb9876637bdca731
+11    111111122233cbbdeeec99acedccddcba9748777486aba851159cdddda2
+2221111111122158cdc8bccb9beecbacddccba9777bba95326dfcb75  9bbb9854
+11111111    2cfffffec767769dedc9abba988beeeeeedb438ef9ceda8ddcca42
+           3effffddcdeedcbbabdccadcabe8bffeeeeddcbabecbdcb78cb97
+          2b9beebffeeeddddddeecdeeccfffcbeeeeeddcba8a63abbbca641
+1         6dc769eeeeedccdeeeeeddda6abcfffdaabccaa97759a78beeb798a3
+          6cddcaddddddddefdeffea7898ec99cffd77cdccba8438cab962 b7
+           9bccb9cccccdeeceeee8bfee778bc87b89ddcba9862 67a963 1 4
+            789988aaabcdbee877beee9bc9445424bcba9764     671 1
+             133421469abbcc986bdc8acba96    68762
+                   58bccb89aa477797543
+                  269abba954523543        1
+                 aca9ba98751             3
+                cd675ab9864             41
+                35 799678751          12
+                      1             1
+                      462
+                  19bec843
+                  6ddb9 1
+                   211
+                    1a
+                    6b3
+                     841
+                    afc96
+                    131
+                      5
+
+
+
+
+  ultimo fotogramma, battuta 71.
+  la membrana si richiude. prima no.
+
+  console.
+
+-->
+<pre id="dump" aria-hidden="true"></pre>
+<canvas id="fuga" aria-hidden="true"></canvas>
+
+<div id="schermo">
+  <canvas id="film" width="480" height="270" tabindex="0" aria-label="membrana"></canvas>
+</div>
+
+<div id="palco" aria-hidden="true" hidden>
+  <div id="palco-in">
+    <canvas class="strato" id="s-membrana" width="480" height="270"></canvas>
+    <canvas class="strato" id="s-danno" width="480" height="270"></canvas>
+    <canvas class="strato" id="s-b" width="480" height="270"></canvas>
+    <canvas class="strato" id="s-a" width="480" height="270"></canvas>
+    <canvas class="strato" id="s-flusso" width="480" height="270"></canvas>
+    <svg id="disegno" viewBox="0 0 540 660"></svg>
+  </div>
+</div>
+
+<pre id="stato"></pre>
+<pre id="partitura"></pre>
+<a id="entra" href="#">membrana</a>
+<div id="cursore" aria-hidden="true"></div>
+
+<div id="nascosto">
+il film arriva come vp8 grezzo. il browser lo decodifica due volte: una copia pulita che non vedi, una copia che riceve i dati sbagliati.
+vedi la seconda, in grigio. il colore riaffiora solo dove le due copie non coincidono.
+i fotogrammi chiave mancano dove manca la partitura. tenere premuto ripete il movimento. trascinare riscrive i byte, una riga di macroblocchi ogni otto.
+il suono si rompe con gli stessi numeri.
+dalla battuta 63 non si rompe più niente.
+cristian gargiuolo, 2026.
+</div>
+
+<p id="crediti">membrana, cristian gargiuolo 2026, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.it">cc by-sa 4.0</a>. campioni da glitch with friends: samples vol. 3 (<a href="https://www.glitch.cool/">glitch.cool</a>), <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.it">cc by-sa 4.0</a>: abroxis, glorkglunk, hlessi, heavyhearted, jim kimchi, man from sol, meii, nuan sonar, oddlogic, soup, sunnk, vaeprism.</p>
+
+<script src="membrana.js?v=12" defer></script>
+</body>
+</html>

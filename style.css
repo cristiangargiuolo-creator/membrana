@@ -1,0 +1,145 @@
+/* membrana. font di sistema, nessuna griglia. il lime è solo errore. */
+:root {
+  --carta: #ffffff;
+  --inchiostro: #000000;
+  --byte: #cfcfcf;
+  --gel: #c8f03c;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--carta);
+  color: var(--inchiostro);
+}
+html.inv { filter: invert(1); }
+html.jodi { --carta: #000; --byte: #0a5f12; --inchiostro: #23ff3b; }
+
+body { font: 16px/1.2 "Times New Roman", Times, serif; cursor: crosshair; }
+
+::selection { background: var(--gel); color: #000; }
+
+/* il flusso, byte per byte, dietro a tutto */
+#dump {
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  padding: 2px 3px;
+  font: 11px/12px "Courier New", Courier, monospace;
+  color: var(--byte);
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow: hidden;
+  user-select: text;
+}
+#dump b { font-weight: normal; background: var(--gel); color: #000; }
+#dump i { font-style: normal; color: var(--inchiostro); }
+
+#fuga { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: multiply; }
+html.jodi #fuga { mix-blend-mode: screen; }
+
+#schermo {
+  z-index: 2;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: min(86vw, calc(78vh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  transform: translate(-50%, -50%);
+}
+#film { display: block; width: 100%; height: 100%; image-rendering: pixelated; touch-action: none; outline: none; }
+#schermo.spento { visibility: hidden; }
+
+#palco { position: fixed; inset: 0; pointer-events: none; }
+#palco[hidden] { display: none; }
+#palco-in { position: absolute; left: 50%; top: 50%; width: 540px; height: 660px; transform-origin: 50% 50%; }
+.strato { position: absolute; width: 480px; height: 270px; image-rendering: pixelated; transform-origin: 50% 50%; }
+#s-flusso, #s-a { image-rendering: auto; }
+#disegno { position: absolute; inset: 0; width: 540px; height: 660px; overflow: visible; }
+#disegno text { font: italic 15px "Times New Roman", Times, serif; fill: var(--inchiostro); }
+
+#stato {
+  position: fixed;
+  left: 8px;
+  top: 6px;
+  margin: 0;
+  font: 12px/14px "Courier New", Courier, monospace;
+  background: var(--carta);
+  color: var(--inchiostro);
+  white-space: pre;
+  user-select: none;
+}
+
+#partitura {
+  position: fixed;
+  left: 8px;
+  right: 8px;
+  bottom: 6px;
+  margin: 0;
+  font: 15px/16px "Courier New", Courier, monospace;
+  font-size: min(15px, calc((100vw - 16px) / 48));   /* 74 battute su una riga */
+  white-space: pre;
+  overflow: hidden;
+  color: #a9a9a9;
+  user-select: none;
+}
+#partitura span { cursor: pointer; background: var(--carta); }
+#partitura span.s { color: var(--inchiostro); }
+#partitura span.e { background: var(--gel); color: #000; }
+#partitura span.o { background: var(--inchiostro); color: var(--carta); }
+#partitura span:hover { background: var(--inchiostro); color: var(--carta); }
+
+#entra {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font: 22px "Times New Roman", Times, serif;
+  color: #0000ee;
+  background: var(--carta);
+  padding: 0 4px;
+}
+#entra:visited { color: #551a8b; }
+#entra[hidden] { display: none; }
+
+#cursore {
+  position: fixed;
+  pointer-events: none;
+  font: 11px/12px "Courier New", Courier, monospace;
+  background: var(--gel);
+  color: #000;
+  padding: 0 2px;
+  white-space: pre;
+  display: none;
+}
+
+/* trasparente: lo legge solo chi seleziona */
+#nascosto {
+  position: fixed;
+  left: 8px;
+  bottom: 30px;
+  width: min(60ch, 70vw);
+  font: 12px/15px "Courier New", Courier, monospace;
+  color: transparent;
+  white-space: pre-wrap;
+  user-select: text;
+  z-index: 1;
+}
+#nascosto::selection { background: var(--gel); color: #000; }
+#palco, #stato, #partitura, #entra, #cursore, #crediti { z-index: 3; }
+
+/* crediti: piccoli ma visibili, come chiede la licenza */
+#crediti {
+  position: fixed;
+  right: 8px;
+  bottom: 26px;
+  margin: 0;
+  max-width: min(64ch, 62vw);
+  font: 10px/12px "Courier New", Courier, monospace;
+  color: #8a8a8a;
+  background: var(--carta);
+  text-align: right;
+}
+#crediti a { color: inherit; }
+@media (max-width: 640px) { #crediti { max-width: calc(100vw - 16px); } }
